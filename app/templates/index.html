@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokédex</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212; /* Fondo oscuro */
+            color: #ffffff; /* Texto claro */
+        }
+        .background-dark {
+            background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro con transparencia */
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .form-control {
+            background-color: #333; /* Fondo oscuro para el campo de entrada */
+            color: #fff; /* Texto claro para el campo de entrada */
+            border: 1px solid #555; /* Borde oscuro para el campo de entrada */
+        }
+        .form-control::placeholder {
+            color: #bbb; /* Color claro para el texto del marcador de posición */
+        }
+        .btn-primary {
+            background-color: #1a73e8; /* Color de fondo del botón */
+            border-color: #1a73e8; /* Color del borde del botón */
+        }
+        .btn-primary:hover {
+            background-color: #155ab6; /* Color de fondo del botón al pasar el ratón */
+            border-color: #155ab6; /* Color del borde del botón al pasar el ratón */
+        }
+        .list-group-item {
+            background-color: #333; /* Fondo oscuro para los elementos de la lista */
+            color: #fff; /* Texto claro para los elementos de la lista */
+            border: 1px solid #555; /* Borde oscuro para los elementos de la lista */
+        }
+    </style>
+</head>
+<body>
+    <div class="container" style="max-width: 600px; padding-top: 20px;">
+        <div class="background-dark">
+            <h1 class="my-4 text-center">Pokédex-Sanchez</h1>
+            <form id="buscar-form" action="{{ url_for('buscar') }}" method="post">
+                <div class="form-group">
+                    <input type="text" id="termino" name="termino" class="form-control" placeholder="Buscar Pokémon">
+                </div>
+                <button type="submit" class="btn btn-primary">Buscar</button>
+            </form>
+            {% if error %}
+                <div class="alert alert-danger mt-4">{{ error }}</div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
